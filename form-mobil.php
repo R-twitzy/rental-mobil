@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Buku</title>
+    <title>Form mobil</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
@@ -31,50 +31,51 @@
                     ?>
                     <form action="process-mobil.php" method="post"
                     enctype="multipart/form-data">
-                        ISBN
-                        <input type="number" name="isbn"
+                        ID Mobil
+                        <input type="number" name="id_mobil"
                         class="form-control mb-2" required
-                        value="<?=$mobil["isbn"] ?>" readonly>
+                        value="<?=$mobil["id_mobil"] ?>" readonly>
 
-                        Judul mobil
-                        <input type="text" name="judul_buku"
+                        Nopol
+                        <input type="text" name="nomor_mobil"
                         class="form-control mb-2" required
-                        value="<?=$mobil["judul_buku"] ?>">
+                        value="<?=$mobil["nomor_mobil"] ?>">
 
-                        Penulis
-                        <input type="text" name="penulis"
+                        Merk
+                        <input type="text" name="merk"
                         class="form-control mb-2" required
-                        value="<?=$mobil["penulis"] ?>">
+                        value="<?=$mobil["merk"] ?>">
 
-                        Penerbit
-                        <input type="text" name="penerbit"
-                        class="form-control mb-2" required
-                        value="<?=$mobil["penerbit"] ?>">
-
-                        Jumlah Halaman
-                        <input type="number" name="jumlah_halaman"
-                        class="form-control mb-2" required
-                        value="<?=$mobil["jumlah_halaman"] ?>">
-
-                        Genre
-                        <select name="genre" class="form-control mb-2" required">
-                            <option value="<?=$buku["genre"] ?>">
-                                <?=$mobil["genre"] ?>
+                        Jenis
+                        <select name="jenis" class="form-control mb-2" required">
+                            <option value="<?=$mobil["jenis"] ?>">
+                                <?=$mobil["jenis"] ?>
                             </option>
-                            <option value="Novel">Novel</option>
-                            <option value="Sains">Sains</option>
-                            <option value="Olahraga">Olahraga</option>
-                            <option value="Religi">Religi</option>
-                            <option value="Romansa">Romansa</option>
-                            <option value="Dokumenter">Dokumenter</option>
+                            <option value="Family">Family</option>
+                            <option value="Sport">Sport</option>
                         </select>
 
-                        Cover <br>
-                        <img src="cover/<?=$buku["cover"] ?>" width="150">
-                        <input type="file" name="cover"
+                        Warna
+                        <input type="text" name="warna"
+                        class="form-control mb-2" required
+                        value="<?=$mobil["warna"] ?>">
+
+                        Tahun Pembuatan
+                        <input type="number" name="tahun_pembuatan"
+                        class="form-control mb-2" required
+                        value="<?=$mobil["tahun_pembuatan"] ?>">
+
+                        Biaya Sewa
+                        <input type="number" name="biaya_sewa_per_hari"
+                        class="form-control mb-2" required
+                        value="<?=$mobil["biaya_sewa_per_hari"] ?>">
+
+                        Image <br>
+                        <img src="image/<?=$image["image"] ?>" width="150">
+                        <input type="file" name="image"
                         class="form-control mb-2">
 
-                        <button type="submit" class="btn btn-primary btn-block" name="edit_buku"
+                        <button type="submit" class="btn btn-primary btn-block" name="edit_mobil"
                         onclick="return confirm('Apakah anda yakin?')">
                             Save
                         </button>
@@ -82,43 +83,49 @@
                 <?php
                 } else {
                     #form utk insert ?>
-                    <form action="process-buku.php" method="post"
+                    <form action="process-mobil.php" method="post"
                     enctype="multipart/form-data">
-                        ISBN
-                        <input type="number" name="isbn"
-                        class="form-control mb-2" required>
+                    ID Mobil
+                        <input type="number" name="id_mobil"
+                        class="form-control mb-2" required
+                        value="<?=$mobil["id_mobil"] ?>" readonly>
 
-                        Judul Buku
-                        <input type="text" name="judul_buku"
-                        class="form-control mb-2" required>
+                        Nopol
+                        <input type="text" name="nomor_mobil"
+                        class="form-control mb-2" required
+                        value="<?=$mobil["nomor_mobil"] ?>">
 
-                        Penulis
-                        <input type="text" name="penulis"
-                        class="form-control mb-2" required>
+                        Merk
+                        <input type="text" name="merk"
+                        class="form-control mb-2" required
+                        value="<?=$mobil["merk"] ?>">
 
-                        Penerbit
-                        <input type="text" name="penerbit"
-                        class="form-control mb-2" required>
-
-                        Jumlah Halaman
-                        <input type="number" name="jumlah_halaman"
-                        class="form-control mb-2" required>
-
-                        Genre
-                        <select name="genre" class="form-control mb-2" required>
-                            <option value="Novel">Novel</option>
-                            <option value="Sains">Sains</option>
-                            <option value="Olahraga">Olahraga</option>
-                            <option value="Religi">Religi</option>
-                            <option value="Romansa">Romansa</option>
-                            <option value="Dokumenter">Dokumenter</option>
+                        Jenis
+                        <select name="jenis" class="form-control mb-2" required">
+                            <option value="Family">Family</option>
+                            <option value="Sport">Sport</option>
                         </select>
 
-                        Cover
-                        <input type="file" name="cover"
+                        Warna
+                        <input type="text" name="warna"
+                        class="form-control mb-2" required
+                        value="<?=$mobil["warna"] ?>">
+
+                        Tahun Pembuatan
+                        <input type="number" name="tahun_pembuatan"
+                        class="form-control mb-2" required
+                        value="<?=$mobil["tahun_pembuatan"] ?>">
+
+                        Biaya Sewa
+                        <input type="number" name="biaya_sewa_per_hari"
                         class="form-control mb-2" required>
 
-                        <button type="submit" class="btn btn-primary btn-block" name="simpan_buku">
+                        Image <br>
+                        <img src="image/<?=$image["image"] ?>" width="150">
+                        <input type="file" name="image"
+                        class="form-control mb-2">
+
+                        <button type="submit" class="btn btn-primary btn-block" name="simpan_mobil">
                             Save
                         </button>
                     </form>
