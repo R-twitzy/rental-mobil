@@ -1,3 +1,11 @@
+<?php
+session_start();
+# jika saat load halaman ini, pastikan telah login sbg petugas
+if (!isset($_SESSION["karyawan"])) {
+    header("location:login.php");
+}
+include "navbar.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +16,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid mt-5">
         <div class="card">
-            <div class="card-header bg-primary">
-                <h4 class="text-white">
+            <div class="card-header bg-dark mt-2">
+                <h5 class="text-white">
                     Form Mobil
-                </h4>
+                </h5>
             </div>
             <div class="card-body">
                 <?php
@@ -85,20 +93,14 @@
                     #form utk insert ?>
                     <form action="process-mobil.php" method="post"
                     enctype="multipart/form-data">
-                    ID Mobil
-                        <input type="number" name="id_mobil"
-                        class="form-control mb-2" required
-                        value="<?=$mobil["id_mobil"] ?>" readonly>
 
                         Nopol
                         <input type="text" name="nomor_mobil"
-                        class="form-control mb-2" required
-                        value="<?=$mobil["nomor_mobil"] ?>">
+                        class="form-control mb-2" required>
 
                         Merk
                         <input type="text" name="merk"
-                        class="form-control mb-2" required
-                        value="<?=$mobil["merk"] ?>">
+                        class="form-control mb-2" required>
 
                         Jenis
                         <select name="jenis" class="form-control mb-2" required">
@@ -108,13 +110,11 @@
 
                         Warna
                         <input type="text" name="warna"
-                        class="form-control mb-2" required
-                        value="<?=$mobil["warna"] ?>">
+                        class="form-control mb-2" required>
 
                         Tahun Pembuatan
                         <input type="number" name="tahun_pembuatan"
-                        class="form-control mb-2" required
-                        value="<?=$mobil["tahun_pembuatan"] ?>">
+                        class="form-control mb-2" required>
 
                         Biaya Sewa
                         <input type="number" name="biaya_sewa_per_hari"

@@ -1,3 +1,11 @@
+<?php
+session_start();
+# jika saat load halaman ini, pastikan telah login sbg petugas
+if (!isset($_SESSION["karyawan"])) {
+    header("location:login.php");
+}
+include "navbar.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +16,10 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid mt-5">
         <div class="card">
-            <div class="card-header bg-info">
-                <h4 class="text-white">Data Pelanggan</h4>
+            <div class="card-header bg-dark mt-2">
+                <h5 class="text-white">Data Pelanggan</h5>
             </div>
             <div class="card-body">
                 <!-- tombol daftar -->

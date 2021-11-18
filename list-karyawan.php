@@ -1,3 +1,11 @@
+<?php
+session_start();
+# jika saat load halaman ini, pastikan telah login sbg petugas
+if (!isset($_SESSION["karyawan"])) {
+    header("location:login.php");
+}
+include "navbar.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +16,10 @@
     <title>Daftar Karyawan</title>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid mt-5">
         <div class="card">
-            <div class="card-header bg-info">
-                <h4 class="text-white">Data Karyawan</h4>
+            <div class="card-header bg-dark mt-2">
+                <h5 class="text-white">Data Karyawan</h5>
             </div>
             <div class="card-body">
                 <!-- tombol daftar -->
@@ -51,13 +59,13 @@
                         <li class="list-group-item">
                         <div class="row">
                             <!-- bagian gambar karyawan-->
-                            <div class="col-lg-3">
+                            <div class="col-lg-2">
                                 <img src="foto/<?=$karyawan["foto"]?>"
                                 width="200">
                             </div>
 
                             <!-- bagian data karyawan-->
-                            <div class="col-lg-7 col-md-7">
+                            <div class="col-lg-8 col-md-8">
                                 <h5>Nama karyawan : <?php echo $karyawan["nama_karyawan"];?></h5>
                                 <h6>ID karyawan : <?php echo $karyawan["id_karyawan"];?></h6>
                                 <h6>Alamat : <?php echo $karyawan["alamat_karyawan"]?></h6>

@@ -1,3 +1,11 @@
+<?php
+session_start();
+# jika saat load halaman ini, pastikan telah login sbg petugas
+if (!isset($_SESSION["karyawan"])) {
+    header("location:login.php");
+}
+include "navbar.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +16,10 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid mt-5">
         <div class="card">
-            <div class="card-header bg-info">
-                <h4 class="text-white">Daftar Mobil</h4>
+            <div class="card-header bg-dark mt-2">
+                <h5 class="text-light">Daftar Mobil</h5>
             </div>
             <div class="card-body">
                 <!-- tombol tambah -->
@@ -54,18 +62,23 @@
                             <div class="row">
 
                                 <!-- bagian gambar mobil-->
-                                <div class="col-lg-4">
+                                <div class="col-lg-2">
                                     <img src="image/<?=$mobil["image"]?>"
                                     width="200">
                                 </div>
 
                                 <!-- bagian data mobil-->
-                                <div class="col-lg-6">
+                                <div class="col-lg-2">
                                     <h5><?=$mobil["merk"]?></h5>
                                     <h6>ID : <?=$mobil["id_mobil"]?></h6>
                                     <h6>Nopol : <?=$mobil["nomor_mobil"]?></h6>
                                     <h6>Jenis : <?=$mobil["jenis"]?></h6>
                                     <h6>Warna : <?=$mobil["warna"]?></h6>
+                                </div>
+
+                                <!-- bagian data mobil 2-->
+                                <div class="col-lg-6">
+                                    <h5></h5><br>
                                     <h6>Tahun Pembuatan : <?=$mobil["tahun_pembuatan"]?></h6>
                                     <h6>Harga Sewa : Rp <?=$mobil["biaya_sewa_per_hari"]?>/hari</h6>
                                 </div>
